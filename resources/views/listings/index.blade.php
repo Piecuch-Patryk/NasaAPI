@@ -17,7 +17,7 @@
             <li class="list-group-item">
                 <h5 class="fs-4">{{$listing->name}}</h5>
                 <p>{{$listing->description}}</p>
-                <a href="#" class="btn btn-sm btn-info">More</a>
+                <a href="{{route('apods.index')}}" class="btn btn-sm btn-info">More</a>
             </li>
             @endforeach
         </ul>

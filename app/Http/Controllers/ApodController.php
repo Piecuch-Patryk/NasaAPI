@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Apod;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class ApodController extends Controller
 {
@@ -14,7 +15,7 @@ class ApodController extends Controller
      */
     public function index()
     {
-        //
+        return view('apods.index', ['apods' => Apod::all()]);
     }
 
     /**
@@ -46,7 +47,12 @@ class ApodController extends Controller
      */
     public function show(Apod $apod)
     {
-        //
+        $apiResponse = $this->apiQuery($apod);
+
+        return view('apods.show', [
+            'apod' => $apod,
+            'apiResponse' => $apiResponse,
+        ]);
     }
 
     /**
@@ -81,5 +87,23 @@ class ApodController extends Controller
     public function destroy(Apod $apod)
     {
         //
+    }
+
+    /**
+     * Make query to external API
+     * 
+     * @param  \App\Models\Apod  $apod
+     * @return array $array 
+     */
+
+    private function apiQuery(Apod $apod) {
+        $response = Http::withOptions([
+            'verify' => false
+            ])
+            ->get($apod->url, [
+            'api_key' => $apod->apiKey,
+        ]);
+
+        return json_decode($response->body());
     }
 }

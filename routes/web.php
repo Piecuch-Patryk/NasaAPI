@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApodController;
 use App\Http\Controllers\ListingController;
 
 /*
@@ -18,6 +19,7 @@ Route::controller(ListingController::class)->group(function() {
     Route::get('/', 'index')->name('listings.index');
 });
 
-// Route::controller(ApodController::class)->group(function() {
-//     Route::get('/', 'index')->name('main');
-// });
+Route::controller(ApodController::class)->group(function() {
+    Route::get('/apods', 'index')->name('apods.index');
+    Route::get('/apods/show/{apod}', 'show')->name('apods.show');
+});
