@@ -12,9 +12,9 @@
 
 @section('content')
     <main class="container">
-        <ul class="row">
+        <ul class="list-group">
             @foreach ($listings as $listing)
-            <li class="col-12">
+            <li class="list-group-item">
                 <h5 class="fs-4">{{$listing->name}}</h5>
                 <p>{{$listing->description}}</p>
                 <a href="#" class="btn btn-sm btn-info">More</a>
