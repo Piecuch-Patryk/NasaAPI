@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('apods', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->longText('description');
             $table->string('apiKey');
             $table->string('url');
             $table->string('apiDate')->nullable();
