@@ -16,7 +16,6 @@
     <div class="row">
         @foreach ($apods as $apod)
         <div class="card col-12">
-            <img src="..." class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{$apod->title}}</h5>
                 <p class="card-text">{{$apod->description}}</p>
