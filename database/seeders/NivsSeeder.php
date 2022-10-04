@@ -15,7 +15,7 @@ class NivsSeeder extends Seeder
      */
     public function run()
     {
-        Niv::craete([
+        Niv::create([
             'title' => "Image and Video Library",
             'description' => 'Use this API to access the NASA Image and Video Library site at images.nasa.gov.',
             'apiKey'=> 'XecjRcFA4Wkg93qoXDgFGFvxKI22kV2y3dzl0tG0',

@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('title');
             $table->longText('description');
             $table->string('apiKey');
-            $table->string('apiEndpoint');
             $table->timestamps();
         });
     }
